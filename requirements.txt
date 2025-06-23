@@ -1,0 +1,86 @@
+Server Details: https://ccs1.gether.net.in
+DB Conn String: mongodb://localhost:27017
+
+PORT: 5701
+Mongo conn details: 
+# create user
+db.createUser(
+    {
+        user: "dev-interview",
+        pwd: "h9we7hfappanbk23008",
+        roles: [ { role: "readWrite", db: "interviewone" } ]
+    }
+)   
+# auth user
+use interviewone;
+db.auth("dev-interview", "h9we7hfappanbk23008");
+
+# Problem Statement
+Objective: Build a simple event scheduler where users can create, list, and delete events.
+
+Requirements:
+Frontend:
+
+- Page with a form to add a new event (title, date, time, description).
+
+- List view of all upcoming events.
+
+- "Delete" button for each event.
+
+Backend (Node.js + Express):
+
+Routes:
+
+- POST /events – Create an event.
+
+- GET /events – List all events.
+
+- DELETE /events/:id – Delete an event.
+
+Database (MongoDB):
+
+- Store all events in a collection called events.
+
+
+
+Main Page: Event Dashboard
++--------------------------------------------------+
+|                :star2: Event Scheduler                |
++--------------------------------------------------+
+
+[ Add New Event ]   ← Button that opens a modal or shows a form
+
+----------------------------------------------------
+| :date: Upcoming Events                               |
+----------------------------------------------------
+| :pushpin: Event Title: Team Meeting                     |
+| :calendar: Date: 2025-06-24  :clock3: Time: 3:00 PM             |
+| :memo: Description: Discuss sprint plan              |
+| [ Delete ]                                       |
+----------------------------------------------------
+| :pushpin: Event Title: Product Demo                     |
+| :calendar: Date: 2025-06-25  :clock3: Time: 11:00 AM            |
+| :memo: Description: Client demo for new features     |
+| [ Delete ]                                       |
+----------------------------------------------------
+
+
+
+Add Event Form (Modal or inline)
++----------------------------------------------+
+|               :heavy_plus_sign: Add New Event                |
++----------------------------------------------+
+| Title        [__________________________]    |
+| Date         [______/______/______]          |
+| Time         [__:__ AM/PM]                   |
+| Description  [__________________________]    |
+|                                              |
+|        [ Submit ]     [ Cancel ]             |
++----------------------------------------------+
+
+
+
+
+GitHub Repo
+frontend: git@github.com:GetherDevelopmentTeam/interview-2306-two-client.git
+backend: git@github.com:GetherDevelopmentTeam/interview-2306-two-server.git
